@@ -3,7 +3,16 @@
 	<title>( . Y . )</title>
 	</head>
 	<body>
-		<h1 style="text-align:center;">
-		Cagona</h1>
+		<div>
+			<h1 style="text-align: Center">Pau Vei</h1>
+		</div>
+
+		{% for post in posts %}
+		<div>
+			<p>published: {{ post.published_date }}</p>
+			<h1 style="text-align: Center;background-color:#FF6600" ><a href="">{{ post.title }}</a></h1>
+			<p style="text-align: justify">{{ post.text|linebreaksbr }}</p>
+		</div>
+		{% endfor %}
 	</body>
 </html>
