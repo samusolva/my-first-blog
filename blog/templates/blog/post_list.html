@@ -1,18 +1,32 @@
+{% load staticfiles %}
 <html>
-<head>
-	<title>( . Y . )</title>
+	<head>
+		<title>( . Y . )</title>
+		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
 	</head>
 	<body>
-		<div>
+		<div class="page-header">
 			<h1 style="text-align: Center">Pau Vei</h1>
+			<h2 style="text-align: Center">Estou Fazendo Testes</h2>
 		</div>
 
-		{% for post in posts %}
-		<div>
-			<p>published: {{ post.published_date }}</p>
-			<h1 style="text-align: Center;background-color:#FF6600" ><a href="">{{ post.title }}</a></h1>
-			<p style="text-align: justify">{{ post.text|linebreaksbr }}</p>
+		<div class="content container">
+			<div class="row">
+				<div class="col-md-8">
+					{% for post in posts %}
+						<div class="post">
+							<div class="date">
+								<p>published: {{ post.published_date }}</p>
+							</div>
+							<h1><a href="">{{ post.title }}</a></h1>
+							<p>{{ post.text|linebreaksbr }}</p>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
 		</div>
-		{% endfor %}
 	</body>
 </html>
