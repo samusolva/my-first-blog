@@ -9,8 +9,11 @@
 	</head>
 	<body>
 		<div class="page-header">
-			<h1 style="text-align: Center">Pau Vei</h1>
-			<h2 style="text-align: Center">Estou Fazendo Testes</h2>
+			{% if user.is_authenticated %}
+				<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+			{% endif %}
+			<h1 style="text-align: Center"><a href="{% url 'post_list' %}">Pau Vei</a></h1>
+			<h2 style="text-align: Center">Este site esta passando por testes</h2>
 		</div>
 
 		<div class="content container">
